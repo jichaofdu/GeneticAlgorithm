@@ -1,4 +1,4 @@
-package knapsackProblem;
+package threeSATProblem;
 
 public class HyperParameter {
 	//种群规模
@@ -10,5 +10,5 @@ public class HyperParameter {
 	//杂交概率
 	public static double PM = 0.01;
 	//测试文件路径
-	public static String PARTONEPATH = "C:\\Users\\Chao\\Desktop\\problem1.txt";
+	public static String PARTONEPATH = "C:\\Users\\Chao\\Desktop\\problem3.txt";
 }

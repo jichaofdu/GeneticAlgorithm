@@ -31,8 +31,9 @@ public class KnapsackProblem {
 			calculateFitness();
 			evolution();
 		}
+		calculateFitness();
 		printGeneGroup();
-		
+		getBestResult();
 	}
 	
 	private void readProblem(){
@@ -130,8 +131,17 @@ public class KnapsackProblem {
 	
 	private void select(){
 		int[][] newGroupGene = new int[this.groupScale][this.objectNum];
-		Random random = new Random();
+		int maxIndex = 0;
+		double max = 0;
 		for(int i = 0;i < groupScale;i++){
+			if(fitness[i] > max){
+				max = fitness[i];
+				maxIndex = i;
+			}
+		}
+		geneTransOldToNew(groupGenes[maxIndex],newGroupGene,0);
+		Random random = new Random();
+		for(int i = 1;i < groupScale;i++){
 			double randomProbability = random.nextDouble();
 			for(int j = 0;j < groupScale;j++){
 				if(randomProbability < pi[j]){
@@ -161,14 +171,33 @@ public class KnapsackProblem {
 			 firstGene[edgeFront + i] = secondGene[edgeFront + i];
 			 secondGene[edgeFront + i] = temp;
 		 }
-		 
-		 
 	}
 	
 	private void geneTransOldToNew(int[] gene,int[][] newGeneGroup,int index){
 		for(int i = 0;i < gene.length;i++){
 			newGeneGroup[index][i] = gene[i];
 		}
+	}
+	
+	private void getBestResult(){
+		calculateFitness();
+		double max = 0;
+		int maxIndex = 0;
+		for(int i = 0;i < groupScale;i++){
+			if(fitness[i] > max){
+				max = fitness[i];
+				maxIndex = i;
+			}
+		}
+		System.out.println("Result:");
+		double weight = 0;
+		for(int k = 0;k < objectNum;k++){
+			System.out.print(groupGenes[maxIndex][k]);
+			weight += groupGenes[maxIndex][k] * objectValue[k];
+		}
+		System.out.println();
+		System.out.println("Weight:" + weight);
+
 	}
 	
 	private void printGeneGroup(){
