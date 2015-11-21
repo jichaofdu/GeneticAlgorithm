@@ -269,6 +269,7 @@ public class HamiltonProblem {
 		System.out.println("Result:");
 		for(int k = 0;k < cityNum;k++){
 			System.out.print(groupGenes[maxIndex][k] + "-");
+			LogRecord.logRecord(groupGenes[maxIndex][k]+"","C:\\Users\\Chao\\Desktop\\problem2_sol.txt" );
 			if(k < cityNum - 1){
 				temp += pathWeight[groupGenes[maxIndex][k]][groupGenes[maxIndex][k+1]];
 			}else{
@@ -278,6 +279,7 @@ public class HamiltonProblem {
 		System.out.print("End");
 		System.out.println();
 		System.out.println("Weight:" + temp);
+		LogRecord.logRecord(temp+"","C:\\Users\\Chao\\Desktop\\problem2_sol.txt" );
 	}
 	
 	private void geneTransOldToNew(int[] gene,int[][] newGeneGroup,int index){

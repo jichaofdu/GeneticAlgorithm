@@ -193,10 +193,12 @@ public class KnapsackProblem {
 		double weight = 0;
 		for(int k = 0;k < objectNum;k++){
 			System.out.print(groupGenes[maxIndex][k]);
+			LogRecord.logRecord(groupGenes[maxIndex][k]+"", "C:\\Users\\Chao\\Desktop\\problem1_sol.txt");
 			weight += groupGenes[maxIndex][k] * objectValue[k];
 		}
 		System.out.println();
-		System.out.println("Weight:" + weight);
+		System.out.println("Value:" + weight);
+		LogRecord.logRecord(weight+"", "C:\\Users\\Chao\\Desktop\\problem1_sol.txt");
 
 	}
 	

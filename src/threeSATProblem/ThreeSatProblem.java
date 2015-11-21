@@ -223,6 +223,7 @@ public class ThreeSatProblem {
 		}
 		for(int k = 0;k < clueClassNum;k++){
 			System.out.print(groupGenes[maxIndex][k]);
+			LogRecord.logRecord(groupGenes[maxIndex][k]+"", "C:\\Users\\Chao\\Desktop\\problem3_sol.txt");
 		}
 
 
